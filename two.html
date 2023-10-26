@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a-scene embedded arjs>
+        <a-marker preset="hiro">
+            <a-entity id="myModel" gltf-model="Falling.gltf" position="-0.5 0 -5" scale="0.01 0.01 0.01"></a-entity>
+            <a-box position="-3 0 0" width="0.4" height="0.01" depth="0.4" color="blue"></a-box>
+        </a-marker>
+    </a-scene>
+
+    <!-- Кнопки управления -->
+    <button style="position: absolute; bottom: 30px; left: 300px" onclick="moveForward()">Вперед</button>
+    <button style="position: absolute; bottom: 30px; left: 400px" onclick="moveBackward()">Назад</button>
+    <button style="position: absolute; bottom: 30px; left: 500px" onclick="moveLeft()">Влево</button>
+    <button style="position: absolute; bottom: 30px; left: 600px" onclick="moveRight()">Вправо</button>
+
+    <script>
+        var insideSquare = false;
+
+        function moveForward() {
+            var model = document.getElementById('myModel');
+            var currentPosition = model.getAttribute('position');
+            var newPosition = {x: currentPosition.x, y: currentPosition.y, z: currentPosition.z - 0.1};
+            model.setAttribute('position', newPosition);
+            checkSquare(newPosition);
+        }
+
+        function moveBackward() {
+            var model = document.getElementById('myModel');
+            var currentPosition = model.getAttribute('position');
+            var newPosition = {x: currentPosition.x, y: currentPosition.y, z: currentPosition.z + 0.1};
+            model.setAttribute('position', newPosition);
+            checkSquare(newPosition);
+        }
+
+        function moveLeft() {
+            var model = document.getElementById('myModel');
+            var currentPosition = model.getAttribute('position');
+            var newPosition = {x: currentPosition.x - 0.1, y: currentPosition.y, z: currentPosition.z};
+            model.setAttribute('position', newPosition);
+            checkSquare(newPosition);
+        }
+
+        function moveRight() {
+            var model = document.getElementById('myModel');
+            var currentPosition = model.getAttribute('position');
+            var newPosition = {x: currentPosition.x + 0.1, y: currentPosition.y, z: currentPosition.z};
+            model.setAttribute('position', newPosition);
+            checkSquare(newPosition);
+        }
+
+        function checkSquare(position) {
+            if (
+                position.x >= -3.2 &&
+                position.x <= -2.8 &&
+                position.z >= -0.2 &&
+                position.z <= 0.2
+
+            ) {
+                
+                insideSquare = true;
+                window.location.href = "three.html";
+                alert('Поздравляем! Вы прошли игру.');
+            } else {
+                insideSquare = false;
+            }
+        }
+    </script>
+</body>
+</html>

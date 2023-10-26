@@ -1,0 +1,75 @@
+body{
+    margin: 0 auto 0;
+    font-family: 'Inter', sans-serif;
+    background-image: url("./fon.jpg");
+    width: 280px;
+}
+
+.btn{
+    width: 280px;
+    height: 60px;
+    border-radius: 10px;
+    background: #1E72BF;
+    border: none;
+
+    color: #FFF;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.14px;
+    margin-bottom: 10px;
+}
+
+.btn_two{
+    border: 2px solid #FFF;
+    background: rgba(70, 160, 243, 0.92);
+    width: 280px;
+    height: 60px;
+    border-radius: 10px;
+
+    color: #FFF;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.14px;
+    margin-bottom: 10px;
+
+}
+
+h1{
+    margin: 150px auto 108px;
+    color: #FFF;
+    font-size: 54px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.811px;
+    text-transform: uppercase;
+}
+
+.pravila_btn{
+    border: 2px solid #FFF;
+    background: rgba(70, 160, 243, 0.92);
+}
+
+.btns{
+    display: block;
+}
+
+.des{
+    border: none;
+    border-radius: 6.308px;
+background: #1E72BF;
+    width: 85px;
+height: 30px;
+color: #FFF;
+
+font-family: Inter;
+font-size: 8.832px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.088px;
+}
